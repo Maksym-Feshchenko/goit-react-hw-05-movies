@@ -1,14 +1,15 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import { IMAGE_URL } from '../components/Api';
 
 const Movies = () => {
-  const [searchQuery, setSearchQuery] = useState('');
+  const [searchQuery, setSearchParams] = useState('');
   const [searchResults, setSearchResults] = useState([]);
   const [error, setError] = useState(null);
 
   const handleSearch = async () => {
     if (searchQuery.trim() === '') {
-      setError('Будь ласка, введіть дійсний пошуковий запит');
+      setError('Start typing to search for a movie');
       return;
     }
 
@@ -22,33 +23,54 @@ const Movies = () => {
         setSearchResults(data.results);
         setError(null);
       } else {
-        setError('Помилка при пошуку фільмів');
+        setError('Error while searching for movies');
       }
     } catch (error) {
-      setError('Помилка при пошуку фільмів');
+      setError('Error while searching for movies');
     }
   };
 
   const handleResetSearch = () => {
-    setSearchQuery('');
+    setSearchParams('');
     setSearchResults([]);
     setError(null);
   };
 
+  const handleInputChange = (e) => {
+    setSearchParams(e.target.value);
+  };
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      handleSearch();
+    }, 500);
+  
+    return () => clearTimeout(timer);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [searchQuery]);
+
   return (
-    <div>
+    <div className='searchMovie'>
       <input
-        type="text"
+        className='searchInput'
+        type='text'
         value={searchQuery}
-        onChange={(e) => setSearchQuery(e.target.value)}
+        onChange={handleInputChange}
       />
-      <button onClick={handleSearch}>Шукати</button>
-      <button onClick={handleResetSearch}>Скинути</button>
+      <button onClick={handleSearch} className='btnSearchBar'>Search</button>
+      <button onClick={handleResetSearch} className='btnSearchBar'>Remove</button>
       {error && <div>{error}</div>}
-      <ul>
+      <ul className='searchList'>
         {searchResults.map((movie) => (
-          <li key={movie.id}>
-            <Link to={`/movies/${movie.id}`}>{movie.title}</Link>
+          <li key={movie.id} className='movieSearch'>
+         
+            <Link to={`/movies/${movie.id}`}> 
+              <img
+                src={IMAGE_URL + movie.poster_path}
+                alt={movie.title}
+                width={150}
+              />
+               {movie.title}</Link>
           </li>
         ))}
       </ul>

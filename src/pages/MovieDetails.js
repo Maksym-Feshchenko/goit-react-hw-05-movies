@@ -15,14 +15,14 @@ const MovieDetails = () => {
   useEffect(() => {
     const fetchMovieDetails = async () => {
       try {
-        const apiKey = '56a1158049e37c9be6acff13320da327'; // Замініть на свій API ключ
+        const apiKey = '56a1158049e37c9be6acff13320da327';
         const url = `https://api.themoviedb.org/3/movie/${movieId}?api_key=${apiKey}`;
         const response = await fetch(url);
         const data = await response.json();
         setMovieDetails(data);
         setLoading(false);
       } catch (error) {
-        console.log('Помилка при отриманні інформації про фільм:', error);
+        console.log('Failed to fetch movie details:', error);
         setLoading(false);
       }
     };
@@ -48,19 +48,25 @@ const MovieDetails = () => {
 
   return (
     <div>
-        
+        <div className='movieDetailsCard'>
         <h1>{movieDetails.title}</h1>
         <img src={`https://image.tmdb.org/t/p/w200/${movieDetails.poster_path}`} alt={movieDetails.title} />
         <p>Ganres: {movieDetails.genres.map((genre) => genre.name).join(', ')}</p>
         <p>Overview: {movieDetails.overview}</p>
-        <p>User score: {movieDetails.vote_average* 10}%</p>
+        <p>User score: {movieDetails.vote_average.toFixed(1)}/10</p>
         <p>Release Date: {movieDetails.release_date}</p>
+        </div>
 
-        <button onClick={handleToggleCast}>Показати акторський склад</button>
+        <ul>
+          <li className='list'>
+          <button onClick={handleToggleCast} className='button'>Cast</button>
         {showCast && <Cast movieId={movieId} />}
-
-      <button onClick={handleToggleReviews}>Показати огляди</button>
+          </li>
+          <li className='list'>
+          <button onClick={handleToggleReviews} className='button'>Reviews</button>
       {showReviews && <Reviews movieId={movieId} />}
+          </li>
+        </ul>
     </div>
   );
 };

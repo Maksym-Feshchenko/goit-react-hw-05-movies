@@ -12,10 +12,9 @@ export default function HomePage() {
     }, [])
 
     return (
-        <>
-            <h1>Trending today</h1>
-
+        <div className='homePage'>
+            <h1 className='titleTranding'>Trending today</h1>
             <MoviesDetails movies={movies} />
-        </>
+        </div>
     );
 };

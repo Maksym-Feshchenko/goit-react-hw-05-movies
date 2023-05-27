@@ -23,3 +23,228 @@ code {
   font-size: 22px;
   gap: 20px;
 }
+
+
+  .button {
+    background-color: #ec5b01; /* Green */
+    border: none;
+    color: white;
+    padding: 15px 5px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 18px;
+    width: 100px;
+}
+
+.button:hover {
+  background-color: #000000;
+  color: #ffffff;
+}
+
+
+.btnSearchBar {
+  background-color:#ec5b01;
+    border-radius: 20%;
+    border: none;
+    color: white;
+    padding: 10px 5px;
+    text-align: center;
+    text-decoration: none;
+    display:inline-block;
+    font-size: 16px;
+    width: 90px;
+    margin: 10px;
+}
+
+.btnSearchBar:hover {
+  background-color: #000000;
+  color: #ffffff;
+}
+
+.list {
+  list-style: none;
+}
+
+.fontSizeDet {
+  font-size: 22px;
+  padding: 20px;
+}
+
+.movieDetailsCard, .searchMovie {
+  font-size: 24px;
+  padding: 10px 20px;
+  width: 800px;
+  
+  }
+
+  .homePage{
+   
+  }
+
+  h1 {
+      font-size: 32px;
+
+  }
+
+  .trandingList {
+    list-style: none;
+    font-size: 22px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    width: 1400px;
+
+  }
+
+  .movieTitle{
+    width: 400px;
+    color:rgb(0, 0, 0); 
+
+  }
+
+  .trandingCard {
+    justify-content: center;
+  }
+
+  .nav {
+    background-color: #000709;
+    padding: 10px;
+    height: 25px;
+    
+  }
+  
+  .nav-list {
+    list-style-type: none;
+    display: flex;
+    justify-content: space-between;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .nav-item {
+    margin-right: 10px;
+  }
+  
+  .nav-link {
+    text-decoration: none;
+    color: #ff7700;
+    padding: 5px;
+  }
+  
+  .nav-link:hover {
+    background-color: #ffffff;
+    color: #000000;
+  }
+  
+  .active {
+    background-color: #ff7700;
+    color: #ffffff;
+  }
+  
+  .titleTranding {
+    padding-left: 20px;
+    color: #6a3a00;
+    
+    
+  }
+
+  .search-input {
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    color: #495057;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    border-radius: 0.25rem;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  }
+  
+  .search-input:focus {
+    color: #495057;
+    background-color: #fff;
+    border-color: #80bdff;
+    outline: 0;
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+  }
+  
+  .castList {
+    list-style: none;
+  }
+
+  .fontSizeDet {
+    font-size: 18px;
+  }
+  
+  .castList {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .castItem {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+  
+  .actorImage {
+    width: 100px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 4px;
+    margin-right: 10px;
+  }
+  
+  .actorDetails {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .actorName {
+    margin-bottom: 5px;
+    font-weight: bold;
+  }
+  
+  .characterName {
+    color: #888;
+  }
+
+  .fontSizeDet {
+    font-size: 18px;
+  }
+  
+  .reviewList {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .reviewItem {
+    margin-bottom: 10px;
+  }
+  
+  .reviewItem h4 {
+    margin-bottom: 5px;
+    font-weight: bold;
+  }
+  
+  .reviewItem p {
+    color: #555;
+  }
+  
+
+  .movieSearch {
+    list-style: none;
+    width: 180px;
+  }
+
+  .searchList{
+
+    list-style: none;
+    font-size: 22px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    width: 1400px;
+  }
+  

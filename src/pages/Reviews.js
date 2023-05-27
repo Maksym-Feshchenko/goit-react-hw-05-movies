@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import { BASE_URL, KEY} from '../components/Api';
+import { BASE_URL, KEY } from '../components/Api';
 
 const Reviews = () => {
   const { movieId } = useParams();
@@ -21,13 +21,12 @@ const Reviews = () => {
   }, [movieId]);
 
   return (
-    <div>
-      <h1>Reviews</h1>
-      <ul>
+    <div className='fontSizeDet'>
+      <ul className='reviewList'>
         {reviews.map((review) => (
-          <li key={review.id}>
-            <h3>{review.author}</h3>
-            <p>{review.content}</p>
+          <li key={review.id} className='reviewItem'>
+            <h4> * {review.author}</h4>
+            <p> ∙ {review.content}</p>
           </li>
         ))}
       </ul>

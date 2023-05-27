@@ -1,7 +1,9 @@
-import { NavLink, Route, Routes } from "react-router-dom";
-import Home from '../pages/Home'
-import Movies from '../pages/Movies'
-import MovieDetails from '../pages/MovieDetails'
+import React, { Suspense } from 'react';
+import { NavLink, Route, Routes } from 'react-router-dom';
+
+const Home = React.lazy(() => import('../pages/Home'));
+const Movies = React.lazy(() => import('../pages/Movies'));
+const MovieDetails = React.lazy(() => import('../pages/MovieDetails'));
 
 export const App = () => {
   return (
@@ -14,21 +16,23 @@ export const App = () => {
       }}
     >
       <nav className="nav">
-        <ul>
-          <li>
-            <NavLink to='/'>Home</NavLink>
+        <ul className="nav-list">
+          <li className="nav-item">
+            <NavLink to='/' className="nav-link">Home</NavLink>
           </li>
-          <li>
-            <NavLink to='/movies'>Movies</NavLink>
+          <li className="nav-item">
+            <NavLink to='/movies' className="nav-link">Movies</NavLink>
           </li>
         </ul>
       </nav>
 
       <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/movies" element={<Movies />} />
-        <Route path="/movies/:movieId" element={<MovieDetails />} />
+        <Route path="/" element={<Suspense fallback={<div>Loading...</div>}><Home /></Suspense>} />
+        <Route path="/movies" element={<Suspense fallback={<div>Loading...</div>}><Movies /></Suspense>} />
+        <Route path="/movies/:movieId" element={<Suspense fallback={<div>Loading...</div>}><MovieDetails /></Suspense>} />
       </Routes>
     </div>
   );
 };
+
+
