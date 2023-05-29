@@ -26,13 +26,13 @@ export const App = () => {
         </ul>
       </nav>
 
-      <Routes>
-        <Route path="/" element={<Suspense fallback={<div>Loading...</div>}><Home /></Suspense>} />
-        <Route path="/movies" element={<Suspense fallback={<div>Loading...</div>}><Movies /></Suspense>} />
-        <Route path="/movies/:movieId" element={<Suspense fallback={<div>Loading...</div>}><MovieDetails /></Suspense>} />
-      </Routes>
+      <Suspense fallback={<div>Loading...</div>}>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/movies" element={<Movies />} />
+          <Route path="/movies/:movieId" element={<MovieDetails />} />
+        </Routes>
+      </Suspense>
     </div>
   );
 };
-
-
